@@ -1,0 +1,43 @@
+# Project: ProyectoEDA2
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o generar_asistentes.o tablahash.o heap.o avl.o asistente.o
+LINKOBJ  = main.o generar_asistentes.o tablahash.o heap.o avl.o asistente.o
+LIBS     = -L"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib" -L"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = ProyectoEDA2.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Users\jdpad\OneDrive\Documents\Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+generar_asistentes.o: generar_asistentes.cpp
+	$(CPP) -c generar_asistentes.cpp -o generar_asistentes.o $(CXXFLAGS)
+
+tablahash.o: tablahash.cpp
+	$(CPP) -c tablahash.cpp -o tablahash.o $(CXXFLAGS)
+
+heap.o: heap.cpp
+	$(CPP) -c heap.cpp -o heap.o $(CXXFLAGS)
+
+avl.o: avl.cpp
+	$(CPP) -c avl.cpp -o avl.o $(CXXFLAGS)
+
+asistente.o: asistente.cpp
+	$(CPP) -c asistente.cpp -o asistente.o $(CXXFLAGS)
