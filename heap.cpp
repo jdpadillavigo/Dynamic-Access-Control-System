@@ -37,7 +37,6 @@ void build_max_heap(Asistente A[], int n) {
 }
 
 void mostrarHeap(Asistente A[], int n) {
-    std::cout << "\nHeap (por prioridad):\n";
     for (int i = 0; i < n; i++) {
         std::cout << A[i].nombre << " (DNI: " << A[i].dni << ", Prioridad: " << A[i].prioridad << ")\n";
     }

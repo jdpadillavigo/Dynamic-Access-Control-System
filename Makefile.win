@@ -6,13 +6,13 @@ CC       = gcc.exe
 WINDRES  = windres.exe
 OBJ      = main.o generar_asistentes.o tablahash.o heap.o avl.o asistente.o
 LINKOBJ  = main.o generar_asistentes.o tablahash.o heap.o avl.o asistente.o
-LIBS     = -L"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib" -L"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
-CXXINCS  = -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/jdpad/OneDrive/Documents/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+LIBS     = -L"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib" -L"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/padil/OneDrive/Documentos/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
 BIN      = ProyectoEDA2.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
-DEL      = C:\Users\jdpad\OneDrive\Documents\Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable\devcpp.exe INTERNAL_DEL
+DEL      = C:\Users\padil\OneDrive\Documentos\Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable\devcpp.exe INTERNAL_DEL
 
 .PHONY: all all-before all-after clean clean-custom
 

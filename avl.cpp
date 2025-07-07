@@ -10,8 +10,6 @@ void ArbolAVL::insertar(const RegistroAcceso& info) {
 }
 
 int ArbolAVL::comparar(const RegistroAcceso& a, const RegistroAcceso& b) {
-    if (a.zona != b.zona)
-        return a.zona < b.zona ? -1 : 1;
     if (a.hora != b.hora)
         return a.hora < b.hora ? -1 : 1;
     return 0;
@@ -156,3 +154,65 @@ std::string formatearHora(int horaHHMM) {
 //        mostrarEchado(nodo->izq, nivel + 1);
 //    }
 //}
+
+void ArbolAVL::mostrarAsistentesEnHora(int hora) {
+    bool encontrado = false;
+    recorrerPorHora(raiz, hora, encontrado);
+    if (!encontrado)
+        std::cout << "No se encontraron registros para la hora especificada.\n";
+}
+
+void ArbolAVL::recorrerPorHora(NodoAVL* nodo, int hora, bool& encontrado) {
+    if (!nodo) return;
+    recorrerPorHora(nodo->izq, hora, encontrado);
+    if (nodo->datos.hora == hora) {
+        std::cout << "Zona: " << nodo->datos.zona
+                  << ", Cantidad: " << nodo->datos.cantidad
+                  << ", Hora: " << formatearHora(nodo->datos.hora) << "\n";
+        encontrado = true;
+    }
+    recorrerPorHora(nodo->der, hora, encontrado);
+}
+
+std::string ArbolAVL::obtenerZonaConMasAsistentes() {
+    const int MAX_ZONAS = 100;
+    std::string zonas[MAX_ZONAS];
+    int cantidades[MAX_ZONAS] = {0};
+    int totalZonas = 0;
+
+    contarAsistentesPorZona(raiz, zonas, cantidades, totalZonas);
+
+    if (totalZonas == 0) return "Sin datos";
+
+    std::cout << "\nCantidad de asistentes por zona:\n";
+    int maxIdx = 0;
+    for (int i = 0; i < totalZonas; ++i) {
+        std::cout << " - " << zonas[i] << ": " << cantidades[i] << " asistentes\n";
+        if (cantidades[i] > cantidades[maxIdx])
+            maxIdx = i;
+    }
+
+    return zonas[maxIdx] + " (" + std::to_string(cantidades[maxIdx]) + " asistentes)";
+}
+
+void ArbolAVL::contarAsistentesPorZona(NodoAVL* nodo, std::string zonas[], int cantidades[], int& totalZonas) {
+    if (!nodo) return;
+
+    contarAsistentesPorZona(nodo->izq, zonas, cantidades, totalZonas);
+
+    int i;
+    for (i = 0; i < totalZonas; ++i) {
+        if (zonas[i] == nodo->datos.zona) {
+            cantidades[i] += nodo->datos.cantidad;
+            break;
+        }
+    }
+
+    if (i == totalZonas && totalZonas < 100) {
+        zonas[totalZonas] = nodo->datos.zona;
+        cantidades[totalZonas] = nodo->datos.cantidad;
+        totalZonas++;
+    }
+
+    contarAsistentesPorZona(nodo->der, zonas, cantidades, totalZonas);
+}

@@ -34,13 +34,17 @@ class ArbolAVL {
 	    NodoAVL* rebalance(NodoAVL* nodo);
 	    NodoAVL* rotarIzquierda(NodoAVL* nodo);
 	    NodoAVL* rotarDerecha(NodoAVL* nodo);
-	    void mostrarEchado(NodoAVL* nodo, int nivel);
+//	    void mostrarEchado(NodoAVL* nodo, int nivel);
 	    int comparar(const RegistroAcceso& a, const RegistroAcceso& b);
+	    void recorrerPorHora(NodoAVL* nodo, int hora, bool& encontrado);
+    	void contarAsistentesPorZona(NodoAVL* nodo, std::string zonas[], int cantidades[], int& totalZonas);
 	
 	public:
 	    ArbolAVL();
 	    void insertar(const RegistroAcceso& info);
 	    void mostrar();
+	    void mostrarAsistentesEnHora(int hora);
+    	std::string obtenerZonaConMasAsistentes();
 };
 
 std::string formatearHora(int horaHHMM);
