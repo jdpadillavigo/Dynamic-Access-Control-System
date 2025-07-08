@@ -11,5 +11,6 @@ void build_max_heap(Asistente A[], int n);
 void mostrarHeap(Asistente A[], int n);
 Asistente extract_max(Asistente A[], int& n);
 bool actualizar_prioridad(Asistente A[], int n, int dni, int nuevaPrioridad);
+void insertar_en_heap(Asistente A[], int& n, Asistente nuevo);
 
 #endif

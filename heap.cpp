@@ -37,9 +37,16 @@ void build_max_heap(Asistente A[], int n) {
 }
 
 void mostrarHeap(Asistente A[], int n) {
-    for (int i = 0; i < n; i++) {
-        std::cout << A[i].nombre << " (DNI: " << A[i].dni << ", Prioridad: " << A[i].prioridad << ")\n";
+    Asistente* copia = new Asistente[n];
+    std::copy(A, A + n, copia);
+    int tam = n;
+
+    while (tam > 0) {
+        Asistente maximo = extract_max(copia, tam);
+        std::cout << maximo.nombre << " (DNI: " << maximo.dni << ", Prioridad: " << maximo.prioridad << ")\n";
     }
+
+    delete[] copia;
 }
 
 Asistente extract_max(Asistente A[], int& n) {
@@ -61,4 +68,15 @@ bool actualizar_prioridad(Asistente A[], int n, int dni, int nuevaPrioridad) {
         }
     }
     return false;
+}
+
+void insertar_en_heap(Asistente A[], int& n, Asistente nuevo) {
+    A[n] = nuevo;
+    int i = n;
+    n++;
+
+    while (i > 0 && A[parent(i)].prioridad < A[i].prioridad) {
+        std::swap(A[i], A[parent(i)]);
+        i = parent(i);
+    }
 }
